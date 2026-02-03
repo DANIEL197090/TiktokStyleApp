@@ -94,7 +94,7 @@ class VideoCell: UICollectionViewCell {
         let actionsStack = UIStackView()
         actionsStack.axis = .vertical
         actionsStack.spacing = 24
-        actionsStack.alignment = .center
+        actionsStack.alignment = .trailing
         contentView.addSubview(actionsStack)
         actionsStack.translatesAutoresizingMaskIntoConstraints = false
         
