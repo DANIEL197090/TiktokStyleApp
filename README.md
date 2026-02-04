@@ -1,5 +1,9 @@
 # TikTok Style Video Feed App
 
+
+https://github.com/user-attachments/assets/a4283f9d-9e4d-476b-b791-07655f848a00
+
+
 A TikTok-style vertical video scrolling application built with iOS (Swift). This app demonstrates a hybrid architecture using both UIKit and SwiftUI, integrating with the Pexels API to fetch and display high-quality portrait videos.
 
 ## Features
