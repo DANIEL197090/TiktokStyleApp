@@ -33,12 +33,12 @@ class LikeStore {
         if likedVideos.contains(videoId) {
             // Unlike
             likedVideos.removeAll { $0 == videoId }
-            let currentCount = likeCounts[String(videoId)] ?? 0
+            let currentCount = likeCounts[String(videoId)] ?? getDefaultLikeCount(for: videoId)
             likeCounts[String(videoId)] = max(0, currentCount - 1)
         } else {
             // Like
             likedVideos.append(videoId)
-            let currentCount = likeCounts[String(videoId)] ?? 0
+            let currentCount = likeCounts[String(videoId)] ?? getDefaultLikeCount(for: videoId)
             likeCounts[String(videoId)] = currentCount + 1
         }
         
@@ -49,7 +49,12 @@ class LikeStore {
     /// Get like count for a video
     func getLikeCount(for videoId: Int) -> Int {
         let likeCounts = getLikeCounts()
-        return likeCounts[String(videoId)] ?? Int.random(in: 100...10000) // Random initial count
+        return likeCounts[String(videoId)] ?? getDefaultLikeCount(for: videoId)
+    }
+    
+    private func getDefaultLikeCount(for videoId: Int) -> Int {
+        // Deterministic initial count based on videoId for consistent demo data
+        return 100 + (abs(videoId.hashValue) % 10000)
     }
     
     /// Get total likes for a user (across all videos)
